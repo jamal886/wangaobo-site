@@ -7,6 +7,10 @@
 <title>Wang Aobo</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
     background:#111;
@@ -15,9 +19,9 @@ body{
 }
 
 .container{
-    max-width:900px;
-    margin:auto;
-    padding:30px 20px;
+    width:min(100%,900px);
+    margin:0 auto;
+    padding:30px 16px;
 }
 
 h1{
@@ -29,9 +33,11 @@ h1{
     background:#1a1a1a;
     padding:20px;
     border-radius:15px;
+    width:100%;
 }
 
-input,textarea{
+input,
+textarea{
     width:100%;
     padding:12px;
     margin-top:8px;
@@ -65,8 +71,28 @@ button{
 
 .gallery img{
     width:100%;
-    border-radius:12px;
+    height:auto;
     display:block;
+    border-radius:12px;
+}
+
+@media (max-width:768px){
+    .container{
+        padding:20px 12px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    h1{
+        font-size:48px;
+    }
+
+    input,
+    textarea{
+        font-size:16px;
+    }
 }
 </style>
 </head>
@@ -94,11 +120,10 @@ button{
 <h1>MY ART</h1>
 
 <div class="gallery">
-
-<img src="art1.jpg">
-<img src="art2.jpg">
-<img src="art3.jpg">
-<img src="art4.jpg">
+<img src="art1.JPG">
+<img src="art2.JPG">
+<img src="art3.JPG">
+<img src="art4.JPG">
 <img src="art5.jpg">
 <img src="art6.jpg">
 <img src="art7.jpg">
@@ -107,7 +132,6 @@ button{
 <img src="art10.jpg">
 <img src="art11.jpg">
 <img src="art12.jpg">
-
 </div>
 
 </div>
@@ -117,7 +141,6 @@ button{
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-
 const supabaseUrl =
 'https://fczqzbogxflzrdotlnqb.supabase.co';
 
@@ -125,39 +148,29 @@ const supabaseKey =
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjenF6Ym9neGZsenJkb3RsbnFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMjYyOTcsImV4cCI6MjA5NjcwMjI5N30.9dIoteKaOtThR940ecBPdRdqSnDvdW1_ppCgcLOq77E';
 
 const supabaseClient =
-supabase.createClient(
-supabaseUrl,
-supabaseKey
-);
+supabase.createClient(supabaseUrl, supabaseKey);
 
 async function submitForm(){
+    const name = document.getElementById('name').value;
+    const reason = document.getElementById('reason').value;
 
-const name =
-document.getElementById('name').value;
+    await supabaseClient
+    .from('Visitors')
+    .insert([
+        {
+            name:name,
+            reason:reason
+        }
+    ]);
 
-const reason =
-document.getElementById('reason').value;
+    document.querySelector('.card').style.display='none';
+    document.getElementById('artSection').style.display='block';
 
-await supabaseClient
-.from('Visitors')
-.insert([
-{
-name:name,
-reason:reason
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:'smooth'
+    });
 }
-]);
-
-document.querySelector('.card').style.display='none';
-
-document.getElementById('artSection')
-.style.display='block';
-
-window.scrollTo({
-top:document.body.scrollHeight,
-behavior:'smooth'
-});
-}
-
 </script>
 
 </body>
