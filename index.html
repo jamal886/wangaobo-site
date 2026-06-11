@@ -6,102 +6,186 @@
 
 <title>Wang Aobo</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-    margin:0;
-    background:#111;
+    font-family:'Inter',sans-serif;
+    background:#0f0f0f;
+    background-image:radial-gradient(circle at top left,rgba(255,255,255,0.06),transparent 40%);
     color:white;
-    font-family:Arial,sans-serif;
+    min-height:100vh;
 }
 
 .container{
-    width:min(100%,900px);
+    width:min(100%,1000px);
     margin:0 auto;
-    padding:30px 16px;
+    padding:40px 20px 80px;
 }
 
 h1{
     text-align:center;
-    margin-bottom:30px;
+    font-size:clamp(48px,8vw,72px);
+    font-weight:600;
+    letter-spacing:-2px;
+    margin-bottom:35px;
 }
 
 .card{
-    background:#1a1a1a;
-    padding:20px;
-    border-radius:15px;
-    width:100%;
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:28px;
 }
 
 label{
     display:block;
-    margin-bottom:8px;
-    font-size:18px;
+    font-size:17px;
+    font-weight:500;
+    margin-bottom:10px;
 }
 
 input,
 textarea{
     width:100%;
-    padding:12px;
-    margin-top:8px;
-    margin-bottom:20px;
-    border:none;
-    border-radius:10px;
+    background:#1a1a1a;
+    color:white;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px;
+    padding:14px;
     font-size:16px;
+    margin-bottom:24px;
+    outline:none;
+    transition:0.2s;
+}
+
+input:focus,
+textarea:focus{
+    border-color:rgba(255,255,255,0.35);
 }
 
 button{
     width:100%;
-    padding:15px;
     border:none;
-    border-radius:10px;
+    border-radius:14px;
+    padding:16px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
     background:white;
     color:black;
-    font-size:18px;
-    cursor:pointer;
+    transition:0.25s;
 }
 
 button:hover{
-    opacity:0.9;
+    transform:translateY(-2px);
 }
 
 #artSection{
     display:none;
-    margin-top:60px;
+    margin-top:70px;
+}
+
+#artSection h1{
+    margin-bottom:15px;
+}
+
+.art-divider{
+    height:1px;
+    background:rgba(255,255,255,0.08);
+    margin-bottom:30px;
 }
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
+}
+
+.art-item{
+    animation:fadeIn 0.6s ease;
 }
 
 .gallery img{
     width:100%;
-    height:auto;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:18px;
     display:block;
-    border-radius:12px;
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+.gallery img:hover{
+    transform:translateY(-4px);
+}
+
+.art-item p{
+    text-align:center;
+    margin-top:10px;
+    color:#d0d0d0;
+    font-size:14px;
+    line-height:1.4;
+}
+
+#lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.92);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+#lightbox img{
+    max-width:92%;
+    max-height:90%;
+    border-radius:18px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 @media (max-width:768px){
     .container{
-        padding:20px 12px;
+        padding:25px 14px 60px;
     }
 
     .card{
-        padding:18px;
+        padding:20px;
+        border-radius:18px;
     }
 
-    h1{
-        font-size:48px;
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
     }
 
-    input,
-    textarea{
-        font-size:16px;
+    .gallery img{
+        border-radius:12px;
+    }
+
+    .art-item p{
+        font-size:13px;
     }
 }
 </style>
@@ -129,25 +213,78 @@ button:hover{
 
 <h1>MY ART</h1>
 
+<div class="art-divider"></div>
+
 <div class="gallery">
 
-<img src="art1.jpg">
-<img src="art2.jpg">
-<img src="art3.jpg">
-<img src="art4.jpg">
-<img src="art5.jpg">
-<img src="art6.jpg">
-<img src="art7.jpg">
-<img src="art8.jpg">
-<img src="art9.jpg">
-<img src="art10.jpg">
-<img src="art11.jpg">
-<img src="art12.jpg">
+<div class="art-item">
+<img src="art1.jpg" onclick="openImage(this.src)">
+<p>PvZ Sunflower</p>
+</div>
+
+<div class="art-item">
+<img src="art2.jpg" onclick="openImage(this.src)">
+<p>Pickle Rick</p>
+</div>
+
+<div class="art-item">
+<img src="art3.jpg" onclick="openImage(this.src)">
+<p>Valorant Oni Shorty</p>
+</div>
+
+<div class="art-item">
+<img src="art4.jpg" onclick="openImage(this.src)">
+<p>LA Hat</p>
+</div>
+
+<div class="art-item">
+<img src="art5.jpg" onclick="openImage(this.src)">
+<p>Fortnite Beef Boss</p>
+</div>
+
+<div class="art-item">
+<img src="art6.jpg" onclick="openImage(this.src)">
+<p>Dropout Bear (VT jersey)</p>
+</div>
+
+<div class="art-item">
+<img src="art7.jpg" onclick="openImage(this.src)">
+<p>Clash Royale Set</p>
+</div>
+
+<div class="art-item">
+<img src="art8.jpg" onclick="openImage(this.src)">
+<p>Brawl Stars Set</p>
+</div>
+
+<div class="art-item">
+<img src="art9.jpg" onclick="openImage(this.src)">
+<p>Brawl Stars Set</p>
+</div>
+
+<div class="art-item">
+<img src="art10.jpg" onclick="openImage(this.src)">
+<p>Among Us Set</p>
+</div>
+
+<div class="art-item">
+<img src="art11.jpg" onclick="openImage(this.src)">
+<p>CSGO Bomb</p>
+</div>
+
+<div class="art-item">
+<img src="art12.jpg" onclick="openImage(this.src)">
+<p>Kanye Jesus Piece</p>
+</div>
+
+</div>
 
 </div>
 
 </div>
 
+<div id="lightbox" onclick="closeImage()">
+<img id="lightboxImg">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -198,6 +335,15 @@ async function submitForm(){
         behavior:'smooth',
         block:'start'
     });
+}
+
+function openImage(src){
+    document.getElementById('lightbox').style.display='flex';
+    document.getElementById('lightboxImg').src=src;
+}
+
+function closeImage(){
+    document.getElementById('lightbox').style.display='none';
 }
 </script>
 
