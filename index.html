@@ -87,7 +87,6 @@ button:hover{
 }
 
 @media (max-width:768px){
-
     .container{
         padding:20px 12px;
     }
@@ -154,7 +153,6 @@ button:hover{
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-
 const supabaseUrl =
 'https://fczqzbogxflzrdotlnqb.supabase.co';
 
@@ -162,10 +160,7 @@ const supabaseKey =
 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZjenF6Ym9neGZsenJkb3RsbnFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMjYyOTcsImV4cCI6MjA5NjcwMjI5N30.9dIoteKaOtThR940ecBPdRdqSnDvdW1_ppCgcLOq77E';
 
 const supabaseClient =
-supabase.createClient(
-supabaseUrl,
-supabaseKey
-);
+supabase.createClient(supabaseUrl, supabaseKey);
 
 async function submitForm(){
 
@@ -199,12 +194,11 @@ async function submitForm(){
     document.getElementById('artSection')
     .style.display='block';
 
-    window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:'smooth'
+    document.getElementById('artSection').scrollIntoView({
+        behavior:'smooth',
+        block:'start'
     });
 }
-
 </script>
 
 </body>
