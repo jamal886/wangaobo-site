@@ -7,19 +7,23 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 body{
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-family:'Manrope',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     color:#f5f5f7;
     min-height:100vh;
     background:
-        radial-gradient(circle at 50% -10%, rgba(255,255,255,0.14), transparent 32%),
-        radial-gradient(circle at 100% 0%, rgba(120,120,120,0.12), transparent 28%),
-        linear-gradient(180deg,#050505 0%,#0b0b0c 45%,#111 100%);
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 35%),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.04), transparent 28%),
+        linear-gradient(180deg,#030303 0%,#080808 35%,#101010 100%);
 }
 
 body::before{
@@ -28,30 +32,30 @@ body::before{
     inset:0;
     pointer-events:none;
     background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size:48px 48px;
-    mask-image:linear-gradient(to bottom, rgba(0,0,0,.5), transparent 75%);
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.45), transparent 75%);
 }
 
 .container{
-    width:min(100%,1040px);
+    width:min(100%,1060px);
     margin:0 auto;
-    padding:48px 22px 90px;
+    padding:50px 22px 90px;
 }
 
 .hero{
     position:relative;
     min-height:620px;
-    margin-bottom:60px;
+    margin-bottom:70px;
 }
 
 .hero video{
     width:min(78%,720px);
-    border-radius:30px;
+    border-radius:22px;
     display:block;
-    box-shadow:0 35px 100px rgba(0,0,0,.55);
-    border:1px solid rgba(255,255,255,.09);
+    box-shadow:0 35px 100px rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .hero-photo{
@@ -59,26 +63,28 @@ body::before{
     right:0;
     top:260px;
     width:min(42%,390px);
-    border-radius:28px;
-    box-shadow:0 30px 90px rgba(0,0,0,.55);
-    border:1px solid rgba(255,255,255,.09);
+    border-radius:20px;
+    box-shadow:0 30px 90px rgba(0,0,0,.58);
+    border:1px solid rgba(255,255,255,.08);
     transform:rotate(4deg);
 }
 
 h1{
     text-align:center;
-    font-size:clamp(56px,9vw,96px);
-    font-weight:800;
+    font-size:clamp(60px,9vw,120px);
+    font-weight:700;
     letter-spacing:-5px;
-    line-height:.9;
-    margin-bottom:24px;
-    color:#fff;
+    line-height:.88;
+    margin-bottom:28px;
+    background:linear-gradient(180deg,#ffffff,#d4d4d4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .art-divider{
     height:1px;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.16),transparent);
-    margin-bottom:34px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.14),transparent);
+    margin-bottom:38px;
 }
 
 .gallery{
@@ -87,60 +93,64 @@ h1{
     gap:24px;
 }
 
-.art-item{animation:fadeIn .7s ease both}
+.art-item{
+    animation:fadeIn .7s ease both;
+}
 
 .gallery img{
     width:100%;
     aspect-ratio:1/1;
     object-fit:cover;
-    border-radius:26px;
+    border-radius:18px;
     display:block;
     cursor:pointer;
     transition:.32s ease;
-    border:1px solid rgba(255,255,255,0.08);
-    box-shadow:0 18px 45px rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,0.07);
+    box-shadow:0 18px 45px rgba(0,0,0,.38);
     background:#181818;
 }
 
 .gallery img:hover{
     transform:translateY(-7px) scale(1.015);
-    box-shadow:0 28px 70px rgba(0,0,0,.55);
+    box-shadow:0 28px 70px rgba(0,0,0,.58);
+    border-color:rgba(255,255,255,0.14);
 }
 
 .art-item p{
     text-align:center;
     margin-top:13px;
-    color:#a9a9a9;
+    color:#9f9f9f;
     font-size:13px;
     font-weight:600;
+    letter-spacing:.2px;
 }
 
 .message{
     max-width:760px;
-    margin:80px auto 0;
-    background:linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025));
+    margin:85px auto 0;
+    background:linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02));
     backdrop-filter:blur(28px);
     -webkit-backdrop-filter:blur(28px);
-    border:1px solid rgba(255,255,255,0.09);
-    border-radius:32px;
-    padding:34px;
-    box-shadow:0 30px 90px rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,0.075);
+    border-radius:26px;
+    padding:32px;
+    box-shadow:0 30px 90px rgba(0,0,0,.46);
 }
 
 label{
     display:block;
     font-size:15px;
     font-weight:600;
-    color:#d8d8d8;
-    margin-bottom:10px;
+    color:#d2d2d2;
+    margin-bottom:12px;
 }
 
 textarea{
     width:100%;
-    background:white;
-    color:black;
-    border:none;
-    border-radius:18px;
+    background:#141414;
+    color:white;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:16px;
     padding:17px 18px;
     font-size:16px;
     margin-bottom:20px;
@@ -148,21 +158,29 @@ textarea{
     font-family:inherit;
 }
 
+textarea:focus{
+    border-color:rgba(255,255,255,.28);
+    box-shadow:0 0 0 4px rgba(255,255,255,.035);
+}
+
 button{
     width:100%;
     border:none;
-    border-radius:18px;
-    padding:18px;
-    font-size:18px;
+    border-radius:16px;
+    padding:17px;
+    font-size:17px;
     font-weight:700;
     cursor:pointer;
-    background:linear-gradient(180deg,#ffffff 0%,#d7d7d7 100%);
+    background:linear-gradient(180deg,#ffffff 0%,#d9d9d9 100%);
     color:#050505;
     transition:.25s ease;
     font-family:inherit;
 }
 
-button:hover{transform:translateY(-2px)}
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 18px 40px rgba(255,255,255,0.11);
+}
 
 #lightbox{
     display:none;
@@ -173,30 +191,41 @@ button:hover{transform:translateY(-2px)}
     justify-content:center;
     align-items:center;
     padding:22px;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
 }
 
 #lightbox img{
     max-width:92%;
     max-height:90%;
-    border-radius:24px;
+    border-radius:20px;
+    box-shadow:0 30px 90px rgba(0,0,0,.75);
 }
 
 @keyframes fadeIn{
-    from{opacity:0;transform:translateY(14px)}
-    to{opacity:1;transform:translateY(0)}
+    from{
+        opacity:0;
+        transform:translateY(14px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 @media (max-width:768px){
-    .container{padding:28px 14px 70px}
+    .container{
+        padding:28px 14px 70px;
+    }
 
     .hero{
         min-height:auto;
-        margin-bottom:55px;
+        margin-bottom:58px;
     }
 
     .hero video{
         width:100%;
-        border-radius:22px;
+        border-radius:18px;
     }
 
     .hero-photo{
@@ -206,7 +235,7 @@ button:hover{transform:translateY(-2px)}
         right:auto;
         margin:-28px 0 0 auto;
         display:block;
-        border-radius:22px;
+        border-radius:18px;
         transform:rotate(3deg);
     }
 
@@ -220,7 +249,7 @@ button:hover{transform:translateY(-2px)}
     }
 
     .gallery img{
-        border-radius:17px;
+        border-radius:15px;
     }
 
     .art-item p{
@@ -230,8 +259,8 @@ button:hover{transform:translateY(-2px)}
 
     .message{
         padding:22px;
-        border-radius:24px;
-        margin-top:60px;
+        border-radius:22px;
+        margin-top:64px;
     }
 }
 </style>
