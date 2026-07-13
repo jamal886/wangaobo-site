@@ -44,9 +44,11 @@ video{
 
     width:100%;
 
+    display:block;
+
     border-radius:20px;
 
-    display:block;
+    object-fit:cover;
 
     box-shadow:
     0 40px 120px rgba(0,0,0,.6);
@@ -65,10 +67,26 @@ video{
 
     display:block;
 
-    border-radius:20px;
+    border-radius:0;
 
     box-shadow:
     0 35px 100px rgba(0,0,0,.45);
+
+}
+
+@media (max-width:768px){
+
+    body{
+        padding:30px 12px;
+    }
+
+    .degree{
+        margin-top:35px;
+    }
+
+    video{
+        border-radius:14px;
+    }
 
 }
 
@@ -98,5 +116,4 @@ controls>
 </div>
 
 </body>
-
 </html>
