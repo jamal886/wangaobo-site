@@ -20,38 +20,55 @@
     box-sizing:border-box;
 }
 
-html,
-body{
-    width:100%;
-    height:100%;
-}
-
 body{
 
     background:#050505;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
     font-family:'Manrope',sans-serif;
 
-    overflow:hidden;
+    display:flex;
+    justify-content:center;
+
+    padding:60px 20px;
+
+}
+
+.container{
+
+    width:100%;
+    max-width:950px;
 
 }
 
 video{
 
-    width:min(88vw,950px);
-
-    max-height:88vh;
+    width:100%;
 
     border-radius:20px;
 
-    object-fit:cover;
+    display:block;
 
     box-shadow:
     0 40px 120px rgba(0,0,0,.6);
+
+}
+
+.degree{
+
+    margin-top:60px;
+
+}
+
+.degree img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 35px 100px rgba(0,0,0,.45);
 
 }
 
@@ -61,6 +78,8 @@ video{
 
 <body>
 
+<div class="container">
+
 <video
 src="intro.mp4"
 autoplay
@@ -69,6 +88,14 @@ loop
 playsinline
 controls>
 </video>
+
+<div class="degree">
+
+<img src="ced.jpg" alt="Virginia Tech Diploma">
+
+</div>
+
+</div>
 
 </body>
 
